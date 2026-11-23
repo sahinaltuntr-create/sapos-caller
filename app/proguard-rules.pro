@@ -1,0 +1,1 @@
+# SaPOS Caller ProGuard rules
