@@ -1,0 +1,44 @@
+SaPOS CALLER & WHATSAPP KÖPRÜSÜ (ÜCRETSİZ & SINIRSIZ ANDROID UYGULAMASI)
+================================================================================
+
+Bu proje, MacroDroid'in 7 günlük deneme sınırını ve ücretli otomasyon ihtiyacını
+ortadan kaldırmak için SaPOS Pro ERP'ye özel olarak hazırlanmış bağımsız Android
+uygulamasıdır. Doğrudan yerel ağ üzerinden Kasa PC (server.js) ile konuşur.
+
+ÖZELLİKLER:
+- Gelen aramayı yakalar -> http://KASA_IP:3000/api/caller-id?phone=NUMARA
+- WhatsApp & WhatsApp Business mesajlarını yakalar ->
+  http://KASA_IP:3000/api/whatsapp-incoming?sender=AD&text=MESAJ
+- Arka planda kapanmaması için Foreground Service + Telefon açılışında otomatik başlama
+- Müşterilere doğrudan APK olarak kurulabilir (Google Play gerektirmez).
+
+--------------------------------------------------------------------------------
+APK NASIL OLUŞTURULUR? (2 KOLAY YOL)
+--------------------------------------------------------------------------------
+
+YOL 1: BİLGİSAYARDA ANDROID STUDIO İLE (ÖNERİLEN)
+1. Ücretsiz Android Studio'yu açın ve bu klasörü "Open" diyerek seçin.
+2. Gradle senkronizasyonu bitince üst menüden:
+   Build -> Build Bundle(s) / APK(s) -> Build APK(s) tıklayın.
+3. Oluşan "app-debug.apk" dosyasını "SaPOS_Caller.apk" olarak adlandırıp
+   kendi telefonunuza ve müşterilerinizin telefonlarına kurun.
+
+YOL 2: BİLGİSAYARA HİÇBİR ŞEY KURMADAN GITHUB İLE (ÜCRETSİZ BULUT DERLEME)
+1. Ücretsiz bir GitHub hesabı açıp yeni bir depo (Repository) oluşturun.
+2. Bu ZIP içindeki tüm dosyaları (".github" klasörü dahil) depoya yükleyin.
+3. Üstteki "Actions" sekmesine tıklayın; "SaPOS Caller APK Derle" iş akışı
+   otomatik çalışıp yaklaşık 2 dakikada "SaPOS-Caller-APK" dosyasını üretir.
+4. İndirip doğrudan Android telefona kurun.
+
+--------------------------------------------------------------------------------
+TELEFONDA İLK KURULUM (1 DAKİKA)
+--------------------------------------------------------------------------------
+1. APK'yı kurup "SaPOS Caller" uygulamasını açın.
+2. Kasa PC'nin yerel ağ IP adresini (Örn: 192.168.1.50) ve Port'u (3000) yazın.
+3. "Kaydet & Başlat" -> "Kasayı Test Et" butonuna basın ("BAĞLI" görünmeli).
+4. Sırasıyla şu 3 izin butonuna birer kez dokunun:
+   - 1. Telefon ve Arama Kaydı İzni Ver
+   - 2. WhatsApp Bildirim Erişimi Aç (Listeden "SaPOS Caller"ı açın)
+   - 3. Pil Kısıtlamasını Kaldır
+5. "Test Araması At" ve "Test WA Siparişi" butonlarıyla kasadaki tepkiyi görün.
+   Artık telefon cebinizde veya tezgahta ekranı kapalıyken bile sistem otomatik çalışır!
