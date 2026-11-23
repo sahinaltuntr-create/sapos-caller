@@ -46,7 +46,7 @@ object SaPosClient {
 
     fun addLog(ctx: Context, msg: String) {
         val time = SimpleDateFormat("HH:mm:ss", Locale("tr", "TR")).format(Date())
-        if (logs.isEmpty()) "Henüz işlem kaydı yok." else logs.joinToString("\n") {
+        synchronized(logs) {
             logs.add(0, "[$time] $msg")
             if (logs.size > 25) logs.removeAt(logs.lastIndex)
         }
@@ -54,8 +54,7 @@ object SaPosClient {
     }
 
     fun getLogsText(): String = synchronized(logs) {
-        if (logs.isEmpty()) "Henüz işlem kaydı yok." else logs.joinToString("
-")
+        if (logs.isEmpty()) "Henüz işlem kaydı yok." else logs.joinToString("\n")
     }
 
     fun sendCallerId(ctx: Context, phone: String, onDone: ((Boolean, String) -> Unit)? = null) {
